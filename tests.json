@@ -1,0 +1,27 @@
+[
+  {
+    "function": "replace_pattern",
+    "name": "URI Replacement",
+    "pattern": "/(pvd|provider-godzilla|login|restart)/(.*)\\?.*",
+    "replacement": "/$1/$2",
+    "target": "http.url",
+    "tests": [
+      {
+        "expect": "https://company.com/pvd/some/api/token",
+        "input": "https://company.com/pvd/some/api/token?super_secret=secret"
+      },
+      {
+        "expect": "https://company.com/provider-godzilla/some/api/token",
+        "input": "https://company.com/provider-godzilla/some/api/token?super_secret=secret"
+      },
+      {
+        "expect": "https://company.com/login/some/api/token",
+        "input": "https://company.com/login/some/api/token?super_secret=secret"
+      },
+      {
+        "expect": "https://company.com/restart/some/api/token",
+        "input": "https://company.com/restart/some/api/token?super_secret=secret"
+      }
+    ]
+  }
+]
